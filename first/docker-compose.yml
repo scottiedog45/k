@@ -1,0 +1,20 @@
+version: "3.2"
+services:
+  #this service name can be anything
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
