@@ -19,6 +19,6 @@ jobs:
         secreto: ${{  secrets.first_secret }}
       run: |
         cd first
-        echo secreto
+        echo $secreto
         ./testScript.sh
         docker build . --file Dockerfile --tag my-image-name:$(date +%s)
