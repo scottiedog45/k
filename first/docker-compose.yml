@@ -1,6 +1,10 @@
 version: "3.2"
 services:
   #this service name can be anything
+  fe:
+    image: scottiedog45/test-fe
+    ports:
+      - "80:80"
   redis:
     image: redis
     ports:

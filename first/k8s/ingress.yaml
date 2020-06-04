@@ -5,10 +5,18 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
     nginx.ingress.kubernetes.io/secure-backends: "true"
+    nginx.ingress.kubernetes.io/add-base-url: "true"
+#    nginx.ingress.kubernetes.io/enable-cors: "true"
+#    nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS"
+#    nginx.ingress.kubernetes.io/cors-allow-origin: "http://localhost:4200"
 spec:
   rules:
      - http:
         paths:
+          - path: /?(.*)
+            backend:
+              serviceName: fe
+              servicePort: 80
           - path: /first/(.*)
             backend:
               serviceName: web
