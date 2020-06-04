@@ -8,7 +8,7 @@ WORKDIR /ng-app
 
 COPY . .
 
-RUN npm run ng build -- --prod=true --aot
+RUN npm run ng build -- --prod=true
 
 FROM nginx:1-alpine
 
